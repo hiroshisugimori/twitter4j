@@ -172,10 +172,14 @@ public class HttpClientImpl extends HttpClientBase implements HttpResponseCode, 
                     }
                 }
             } catch (IOException ioe) {
+              if (ioe.getMessage().contains("authentication challenge")) {
+                    throw new TwitterException(ioe.getMessage(), ioe, 401 );
+              }else{
                 // connection timeout or read timeout
                 if (retriedCount == CONF.getHttpRetryCount()) {
                     throw new TwitterException(ioe.getMessage(), ioe, responseCode);
                 }
+              }
             }
             try {
                 if (logger.isDebugEnabled() && res != null) {
