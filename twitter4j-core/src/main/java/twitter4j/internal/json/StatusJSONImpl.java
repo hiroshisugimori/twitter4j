@@ -52,6 +52,8 @@ import static twitter4j.internal.json.z_T4JInternalParseUtil.*;
     private long retweetCount;
     private boolean isPossiblySensitive;
     private String isoLanguageCode;
+    private long favoriteCount;;
+              
 
     private long[] contributorsIDs;
 
@@ -100,6 +102,7 @@ import static twitter4j.internal.json.z_T4JInternalParseUtil.*;
         isFavorited = getBoolean("favorited", json);
         inReplyToScreenName = getUnescapedString("in_reply_to_screen_name", json);
         retweetCount = getLong("retweet_count", json);
+        favoriteCount = getLong("favorite_count", json);
         isPossiblySensitive = getBoolean("possibly_sensitive", json);
         try {
             if (!json.isNull("user")) {
@@ -324,6 +327,11 @@ import static twitter4j.internal.json.z_T4JInternalParseUtil.*;
         return retweetCount;
     }
 
+    @Override
+    public long getFavoriteCount() {
+        return favoriteCount;
+    }
+
     /**
      * {@inheritDoc}
      */
@@ -444,6 +452,7 @@ import static twitter4j.internal.json.z_T4JInternalParseUtil.*;
                 ", geoLocation=" + geoLocation +
                 ", place=" + place +
                 ", retweetCount=" + retweetCount +
+                ", favoriteCount=" + favoriteCount +
                 ", isPossiblySensitive=" + isPossiblySensitive +
                 ", isoLanguageCode=" + isoLanguageCode +
                 ", contributorsIDs=" + contributorsIDs +

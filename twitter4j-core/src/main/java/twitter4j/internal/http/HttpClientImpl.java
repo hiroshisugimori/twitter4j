@@ -172,7 +172,7 @@ public class HttpClientImpl extends HttpClientBase implements HttpResponseCode, 
                     }
                 }
             } catch (IOException ioe) {
-              if (ioe.getMessage().contains("authentication challenge")) {
+              if ( ioe != null && ioe.getMessage() != null && ioe.getMessage().contains("authentication challenge")) {
                     throw new TwitterException(ioe.getMessage(), ioe, 401 );
               }else{
                 // connection timeout or read timeout
@@ -181,6 +181,7 @@ public class HttpClientImpl extends HttpClientBase implements HttpResponseCode, 
                 }
               }
             }
+
             try {
                 if (logger.isDebugEnabled() && res != null) {
                     res.asString();

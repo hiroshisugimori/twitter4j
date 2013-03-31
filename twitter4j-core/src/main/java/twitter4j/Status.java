@@ -145,6 +145,8 @@ public interface Status extends Comparable<Status>, TwitterResponse,
      */
     long getRetweetCount();
 
+    long getFavoriteCount();
+
     /**
      * Returns true if the authenticating user has retweeted this tweet, or false when the tweet was
      * created before this feature was enabled.

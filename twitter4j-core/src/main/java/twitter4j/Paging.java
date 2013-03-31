@@ -37,6 +37,12 @@ public final class Paging implements java.io.Serializable {
     private long maxId = -1;
     private static final long serialVersionUID = -3285857427993796670L;
 
+  private Boolean excludeReplies = null;
+  public void setExcludeReplies(boolean b){
+    excludeReplies = b;
+  }
+
+
     // since only
     static char[] S = new char[]{'s'};
     // since, max_id, count, page
@@ -83,6 +89,11 @@ public final class Paging implements java.io.Serializable {
         addPostParameter(supportedParams, 'm', pagingParams, "max_id", getMaxId());
         addPostParameter(supportedParams, 'c', pagingParams, perPageParamName, getCount());
         addPostParameter(supportedParams, 'p', pagingParams, "page", getPage());
+
+      if( excludeReplies != null ){
+        pagingParams.add(new HttpParameter("exclude_replies", String.valueOf(excludeReplies)));
+      }
+
         if (pagingParams.size() == 0) {
             return NULL_PARAMETER_LIST;
         } else {
