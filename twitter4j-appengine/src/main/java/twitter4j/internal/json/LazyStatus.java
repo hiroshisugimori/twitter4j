@@ -298,6 +298,14 @@ final class LazyStatus implements twitter4j.Status {
         return getTarget().getAccessLevel();
     }
 
+    public String getIsoLanguageCode() {
+        return getTarget().getIsoLanguageCode();
+    }
+
+    public long getFavoriteCount() {
+        return getTarget().getFavoriteCount();
+    }
+
     public int compareTo(Status target) {
         return getTarget().compareTo(target);
     }
