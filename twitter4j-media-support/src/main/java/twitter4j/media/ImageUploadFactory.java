@@ -131,7 +131,7 @@ public class ImageUploadFactory {
         } else if (mediaProvider == TWITPIC) {
             return new TwitpicUpload(conf, apiKey, oauth);
         } else if (mediaProvider == YFROG) {
-            return new YFrogUpload(conf, oauth);
+            return new YFrogUpload(conf, apiKey, oauth);
         } else if (mediaProvider == MOBYPICTURE) {
             return new MobypictureUpload(conf, apiKey, oauth);
         } else if (mediaProvider == POSTEROUS) {

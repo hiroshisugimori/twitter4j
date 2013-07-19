@@ -42,6 +42,8 @@ abstract class AbstractImageUploadImpl implements ImageUpload {
 	
     public static final String TWITTER_VERIFY_CREDENTIALS_JSON_V1_1 = "https://api.twitter.com/1.1/account/verify_credentials.json";
 
+    public static final String TWITTER_VERIFY_CREDENTIALS_XML_V1_1 = "https://api.twitter.com/1.1/account/verify_credentials.xml";
+
     private HttpClientWrapper client;
 
     protected Configuration conf = null;
