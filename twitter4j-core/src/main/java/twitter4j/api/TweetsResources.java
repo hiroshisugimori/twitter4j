@@ -107,4 +107,6 @@ public interface TweetsResources {
      * @since Twitter4J 3.0.2
      */
     OEmbed getOEmbed(OEmbedRequest req) throws TwitterException;
+
+    IDs getRetweeters(long status_id,long cursor) throws TwitterException;
 }
